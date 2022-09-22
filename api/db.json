@@ -1,0 +1,20 @@
+{
+    "public-addresses": [
+        {
+            "id": 1,
+            "name": "Home",
+            "address": "No. 101, North Kargar St., Tehran",
+            "latitude": 35.720179,
+            "longitude": 51.389634
+        },
+        {
+            "id": 2,
+            "name": "Work",
+            "address": "No. 20, West Ferdows St., Tehran",
+            "latitude": 35.729139,
+            "longitude": 51.300281
+        }
+    ],
+    "users": [],
+    "favorite-addresses": []
+}
