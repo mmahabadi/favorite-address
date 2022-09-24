@@ -1,0 +1,12 @@
+<app-panel
+  [title]="item?.name!"
+  [subTitle]="item?.address!"
+  [loading]="loading"
+  class="d-flex w-100-percent"
+>
+  <app-map [lat]="item?.latitude" [long]="item?.longitude"></app-map>
+  <div class="d-flex" ngClass="actions-container">
+    <app-button (onClick)="editHandler()">EDIT</app-button>
+    <app-button (onClick)="deleteHandler()" color="accent">DELETE</app-button>
+  </div>
+</app-panel>

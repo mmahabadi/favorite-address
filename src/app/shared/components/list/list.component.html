@@ -1,0 +1,15 @@
+<mat-selection-list
+  ngClass="list"
+  [multiple]="false">
+  <mat-list-option
+    *ngFor="let item of items; trackBy: trackByFn"
+    (click)="onSelect.emit(item)"
+    ngClass="list-item"
+    [selected]="item.id == selected?.id"
+  >
+    <mat-icon ngClass="icon" mat-list-icon>{{icon}}</mat-icon>
+    <div mat-line ngClass="title">{{item[title]}}</div>
+    <div mat-line> {{item[subTitle]}} </div>
+    <mat-divider></mat-divider>
+  </mat-list-option>
+</mat-selection-list>

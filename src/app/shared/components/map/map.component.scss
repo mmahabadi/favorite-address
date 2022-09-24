@@ -1,0 +1,16 @@
+.map-container {
+  display: block;
+  height: 28rem;
+
+  .map-frame {
+    border: 2px solid #f2f2f2;
+    height: 100%;
+  }
+
+  #map {
+    height: 100%;
+  }
+}
+
+
+

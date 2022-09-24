@@ -1,0 +1,8 @@
+<mat-card class="w-100-percent">
+  <mat-card-title>{{title}}</mat-card-title>
+  <mat-card-subtitle *ngIf="!!subTitle">{{subTitle}}</mat-card-subtitle>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <mat-card-content>
+    <ng-content></ng-content>
+  </mat-card-content>
+</mat-card>

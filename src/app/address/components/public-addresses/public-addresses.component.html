@@ -1,0 +1,10 @@
+<div ngClass="container">
+  <div ngClass="list d-flex flex-1">
+    <app-address-list class="d-flex flex-1"></app-address-list>
+  </div>
+  <div ngClass="details d-flex flex-1">
+    <app-address-details class="d-flex flex-1"></app-address-details>
+  </div>
+</div>
+
+<app-button (onClick)="addHandler()" ngClass="add-btn" color="accent" icon="add"></app-button>

@@ -1,0 +1,33 @@
+.list{
+  max-height: 30rem;
+  overflow: auto;
+
+  .list-item{
+    .icon{
+      color: #009ef7;
+      background-color: #f1faff;
+      justify-content: center;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 0.475rem;
+      padding: 10px;
+    }
+
+    &:hover, &[aria-selected="true"] {
+      .icon {
+        color: #f1416c;
+        background-color: #fff5f8;
+      }
+      .title{
+        color: #f1416c;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .list {
+    max-height: 10rem;
+  }
+}

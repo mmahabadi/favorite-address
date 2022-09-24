@@ -1,0 +1,17 @@
+<button *ngIf="!icon"
+  [disabled]="disabled || loading"
+  mat-button
+  [color]="color"
+  (click)="clickHandler($event)"
+>
+  <ng-content></ng-content>
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+</button>
+<button
+  *ngIf="!!icon"
+  mat-fab
+  (click)="clickHandler($event)"
+  [color]="color"
+>
+  <mat-icon>{{icon}}</mat-icon>
+</button>

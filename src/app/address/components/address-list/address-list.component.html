@@ -1,0 +1,13 @@
+<app-panel
+  class="d-flex w-100-percent"
+  [title]="'Public Addresses'"
+  subTitle="Addresses"
+  [loading]="!!(service.loading$ | async)"
+>
+  <app-list
+    [items]="service.list$ | async"
+    [selected]="service.selectedItem$ | async"
+    (onSelect)="selectListItemHandler($event)"
+    title="name" subTitle="address"
+  ></app-list>
+</app-panel>
