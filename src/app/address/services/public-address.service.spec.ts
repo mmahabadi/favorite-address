@@ -1,40 +1,71 @@
 import {PublicAddressService} from "./public-address.service";
-import {HttpClient} from "@angular/common/http";
-import {MatSnackBar, MatSnackBarModule} from "@angular/material/snack-bar";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {TestBed} from "@angular/core/testing";
 import {Address} from "../models/address";
-import {lastValueFrom, of} from "rxjs";
+import {of} from "rxjs";
 
 describe('Public Address Service', () => {
-  let httpClientSpy: jasmine.SpyObj<HttpClient>;
   let service: PublicAddressService;
 
   beforeEach(() => {
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-
     TestBed.configureTestingModule({
-      providers: [
-        { provide: MatSnackBar, useValue: {} },
-        {provide: HttpClient, useValue: httpClientSpy}
-      ],
-      imports: [MatSnackBarModule]
+      imports: [MatSnackBarModule, HttpClientModule]
     });
     service = TestBed.inject(PublicAddressService);
   });
 
-  it('should use ValueService', async () => {
-    const stubValue = {
-      "id": 1,
-      "name": "Home",
-      "address": "No. 49, Valiasrt St., Tehran",
-      "latitude": 35.720179,
-      "longitude": 51.549634
-    } as Address;
-    httpClientSpy.get.and.returnValue(of(stubValue));
-    const req$ = await service.get(1);
-    const res = await lastValueFrom(req$);
-    expect(res.id)
-      .withContext('service returned stub value')
-      .toBe(stubValue.id);
+  it('should create', () => {
+    expect(service).toBeTruthy();
   });
+
+  it('should call http.get when getAll method is called', () => {
+    const http = TestBed.inject(HttpClient);
+    const spy = jest.spyOn(http, 'get');
+
+    service.getAll();
+
+    expect(spy).toHaveBeenCalled();
+  })
+
+  it('should return addresses when getAll method is called', (done) => {
+    const addresses = [1, 2, 3];
+    const http = TestBed.inject(HttpClient);
+    jest.spyOn(http, 'get').mockImplementation(() => of(addresses));
+
+    service.getAll();
+
+    service.list$.subscribe(res => {
+      expect(res).toBe(addresses);
+      done();
+    })
+  });
+
+  it('should invoke http.post when save a new entry', () => {
+    const http = TestBed.inject(HttpClient);
+    const spy = jest.spyOn(http, 'post');
+
+    service.save({} as Address);
+
+    expect(spy).toHaveBeenCalled();
+  })
+
+  it('should invoke http.put when updating an address',  () => {
+    const http = TestBed.inject(HttpClient);
+    const updateSpy = jest.spyOn(http, 'put');
+
+    service.save({id: 1} as Address);
+
+    expect(updateSpy).toHaveBeenCalled();
+  });
+
+  it('should invoke http.delete when deleting an address',  () => {
+    const http = TestBed.inject(HttpClient);
+    const updateSpy = jest.spyOn(http, 'delete');
+
+    service.delete(1);
+
+    expect(updateSpy).toHaveBeenCalled();
+  });
+
 });

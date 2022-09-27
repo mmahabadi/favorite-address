@@ -1,6 +1,12 @@
 # FavoriteAddress
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+This is a simple useful application that suits those who want to learn the following topics:
+
+* Using Jest tp Test Angular applications.
+* Using Angular material
+* Using Angular reactive forms
+* Using rxjs
 
 ## Development server
 

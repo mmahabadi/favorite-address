@@ -20,6 +20,6 @@
   </form>
 </div>
 <div mat-dialog-actions ngClass="action-container">
-  <app-button [disabled]="loading" (onClick)="cancelHandler()">Cancel</app-button>
-  <app-button [loading]="loading" (onClick)="submitHandler()" color="primary">Save</app-button>
+  <app-button data-id="cancel-btn" [disabled]="loading" (onClick)="cancelHandler()">Cancel</app-button>
+  <app-button data-id="save-btn" [loading]="loading" (onClick)="submitHandler()" color="primary">Save</app-button>
 </div>

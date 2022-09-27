@@ -13,7 +13,13 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   }`]
 })
 export class EntryFormComponent implements OnInit {
-  public form!: FormGroup;
+  form: FormGroup = new FormGroup({
+    id: new FormControl(),
+    name: new FormControl(null, Validators.compose([Validators.required])),
+    address: new FormControl(null, Validators.compose([Validators.required])),
+    latitude: new FormControl(null, Validators.compose([Validators.required])),
+    longitude: new FormControl(null, Validators.compose([Validators.required]))
+  });
   loading: boolean = false;
   title: string = '';
 
@@ -25,14 +31,6 @@ export class EntryFormComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.form = new FormGroup({
-      id: new FormControl(),
-      name: new FormControl(null, Validators.compose([Validators.required])),
-      address: new FormControl(null, Validators.compose([Validators.required])),
-      latitude: new FormControl(null, Validators.compose([Validators.required])),
-      longitude: new FormControl(null, Validators.compose([Validators.required]))
-    });
-
     const isEdit = !!this.data?.id;
     this.title = isEdit ? 'Edit Address' : 'Add Address';
     isEdit && this.loadData();

@@ -1,6 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PublicAddressesComponent } from './public-addresses.component';
+import {PublicAddressesComponent} from './public-addresses.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 describe('PublicAddressesComponent', () => {
   let component: PublicAddressesComponent;
@@ -8,7 +9,8 @@ describe('PublicAddressesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PublicAddressesComponent ]
+      declarations: [ PublicAddressesComponent ],
+      imports: [MatDialogModule]
     })
     .compileComponents();
 
