@@ -2,7 +2,8 @@ import {Attribute, Component, EventEmitter, Input, OnInit, Output} from '@angula
 
 @Component({
   selector: 'app-button',
-  templateUrl: './button.component.html'
+  templateUrl: './button.component.html',
+  styles: ['.full-width{width: 100%}']
 })
 export class ButtonComponent {
   @Input() loading: boolean = false;
@@ -13,7 +14,13 @@ export class ButtonComponent {
     @Attribute('color')
     public color: string,
     @Attribute('icon')
-    public icon: string
+    public icon: string,
+    @Attribute('routerLink')
+    public routerLink: string,
+    @Attribute('fullwidth')
+    public fullwidth: boolean = false,
+    @Attribute('raised')
+    public raised: boolean = false
   ) { }
 
   clickHandler(event: MouseEvent) {

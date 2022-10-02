@@ -1,7 +1,7 @@
 import {PublicAddressService} from "./public-address.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {TestBed} from "@angular/core/testing";
+import {fakeAsync, TestBed, tick} from "@angular/core/testing";
 import {Address} from "../models/address";
 import {of} from "rxjs";
 
@@ -28,18 +28,19 @@ describe('Public Address Service', () => {
     expect(spy).toHaveBeenCalled();
   })
 
-  it('should return addresses when getAll method is called', (done) => {
+  it('should return addresses when getAll method is called',   fakeAsync((done: any) => {
     const addresses = [1, 2, 3];
     const http = TestBed.inject(HttpClient);
     jest.spyOn(http, 'get').mockImplementation(() => of(addresses));
 
     service.getAll();
+    tick();
 
-    service.list$.subscribe(res => {
+    service.list$.subscribe((res: any) => {
       expect(res).toBe(addresses);
       done();
-    })
-  });
+    });
+  }));
 
   it('should invoke http.post when save a new entry', () => {
     const http = TestBed.inject(HttpClient);

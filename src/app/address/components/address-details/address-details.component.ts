@@ -37,7 +37,7 @@ export class AddressDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.service.selectedItem$
       .pipe(takeUntil(this.destroy$))
-      .subscribe(item => this.loadData(item));
+      .subscribe(item => !!item && this.loadData(item));
   }
 
   private loadData(item: Address) {

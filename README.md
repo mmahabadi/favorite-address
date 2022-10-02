@@ -3,14 +3,19 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 This is a simple useful application that suits those who want to learn the following topics:
 
-* Using Jest tp Test Angular applications.
+* Using Jest to Test Angular applications.
 * Using Angular material
 * Using Angular reactive forms
 * Using rxjs
+* Using leaflet
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm install` to install dependencies. 
+
+## Running the project
+
+Run `npm start` to start the project. 
 
 ## Code scaffolding
 

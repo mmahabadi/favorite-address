@@ -6,6 +6,7 @@ import {SharedModule} from "../../../shared/shared.module";
 import {PublicAddressService} from "../../services/public-address.service";
 import {Address} from "../../models/address";
 import {of} from "rxjs";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('AddressDetailsComponent', () => {
   let component: AddressDetailsComponent;
@@ -15,7 +16,7 @@ describe('AddressDetailsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AddressDetailsComponent ],
-      imports: [SharedModule, MatDialogModule]
+      imports: [SharedModule, MatDialogModule, RouterTestingModule]
     })
     .compileComponents();
 

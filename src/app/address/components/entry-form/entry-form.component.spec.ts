@@ -4,6 +4,8 @@ import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/
 import {SharedModule} from "../../../shared/shared.module";
 import {MatInputModule} from "@angular/material/input";
 import {PublicAddressService} from "../../services/public-address.service";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {RouterTestingModule} from "@angular/router/testing";
 
 class MatDialogRefStub{
   close(){}
@@ -18,7 +20,10 @@ describe('EntryFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ EntryFormComponent ],
-      imports: [MatDialogModule, SharedModule, MatInputModule],
+      imports: [
+        NoopAnimationsModule, MatDialogModule, SharedModule,
+        MatInputModule, RouterTestingModule
+      ],
       providers: [
         { provide: MatDialogRef, useClass: MatDialogRefStub },
         { provide: MAT_DIALOG_DATA, useValue: MAT_DIALOG_DATA_STUB }
@@ -34,7 +39,7 @@ describe('EntryFormComponent', () => {
 
     fixture.detectChanges();
 
-    expect(component.data.id).toBe(1);
+    expect(component.title).toContain('Edit Address');
   });
 
   it('should load data when the data is provided', () => {
