@@ -1,0 +1,24 @@
+<div class="container">
+  <app-panel [title]="editMode ? 'Edit Profile' : 'Profile Details'">
+    <mat-divider></mat-divider>
+
+    <div class="mt-1">
+      <app-profile-details
+        *ngIf="!editMode"
+        [user]="user"
+      ></app-profile-details>
+
+      <app-profile-edit-form
+        *ngIf="editMode"
+        [user]="user"
+        (onCancel)="cancelHandler()"
+        (onSave)="updateHandler($event)"
+      ></app-profile-edit-form>
+
+      <div *ngIf="!editMode" class="d-flex action-container">
+        <app-button raised="true" (onClick)="editHandler()" color="primary">Edit Profile</app-button>
+      </div>
+    </div>
+  </app-panel>
+</div>
+

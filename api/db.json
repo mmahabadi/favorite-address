@@ -1,20 +1,28 @@
 {
-    "public-addresses": [
-        {
-            "id": 1,
-            "name": "Home",
-            "address": "No. 101, North Kargar St., Tehran",
-            "latitude": 35.720179,
-            "longitude": 51.389634
-        },
-        {
-            "id": 2,
-            "name": "Work",
-            "address": "No. 20, West Ferdows St., Tehran",
-            "latitude": 35.729139,
-            "longitude": 51.300281
-        }
-    ],
-    "users": [],
-    "favorite-addresses": []
+  "public-addresses": [
+    {
+      "id": 1,
+      "name": "Home",
+      "address": "No. 101, North Kargar St., Tehran",
+      "latitude": 35.720179,
+      "longitude": 51.389634
+    },
+    {
+      "id": 2,
+      "name": "Work",
+      "address": "No. 20, West Ferdows St., Tehran",
+      "latitude": 35.729139,
+      "longitude": 51.300281
+    }
+  ],
+  "users": [
+    {
+      "email": "steve@example.com",
+      "password": "$2a$10$ESxuLjPGl67kEmeCJOC1Yujqus8IdUlhh87jvjcz2jOWEKgpoyxDS",
+      "name": "Steve Martinez",
+      "phoneNumber": "+353766801402",
+      "id": 1
+    }
+  ],
+  "favorite-addresses": []
 }

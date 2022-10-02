@@ -4,20 +4,25 @@ import {EntryFormComponent} from './entry-form.component';
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {SharedModule} from "../../../shared/shared.module";
 import {MatInputModule} from "@angular/material/input";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {RouterTestingModule} from "@angular/router/testing";
 
 class MatDialogRefStub{
   close(){}
 }
 const MAT_DIALOG_DATA_STUB = {}
 
-describe('EntryFormComponent', () => {
+describe('EntryFormComponentUnitTest', () => {
   let component: EntryFormComponent;
   let fixture: ComponentFixture<EntryFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ EntryFormComponent ],
-      imports: [MatDialogModule, SharedModule, MatInputModule],
+      imports: [
+        NoopAnimationsModule, MatDialogModule, SharedModule,
+        MatInputModule, RouterTestingModule
+      ],
       providers: [
         { provide: MatDialogRef, useClass: MatDialogRefStub },
         { provide: MAT_DIALOG_DATA, useValue: MAT_DIALOG_DATA_STUB }
@@ -63,7 +68,7 @@ describe('EntryFormComponent', () => {
     expect(component.title).toContain('Add Address');
   });
 
-  it('should close dialog when I cancel method is called', () => {
+  it('should close dialog when cancel method is called', () => {
     const dialogRef = TestBed.inject(MatDialogRef)
     const spy = jest.spyOn(dialogRef, 'close');
 

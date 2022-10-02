@@ -2,7 +2,9 @@
   [disabled]="disabled || loading"
   mat-button
   [color]="color"
+  [routerLink]="routerLink"
   (click)="clickHandler($event)"
+  [ngClass]="{'mat-flat-button': raised, 'full-width': fullwidth}"
 >
   <ng-content></ng-content>
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>

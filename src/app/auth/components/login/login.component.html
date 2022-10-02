@@ -1,0 +1,25 @@
+<div *ngIf="!!errorMessage">
+  <mat-error>{{errorMessage}}</mat-error>
+</div>
+<form class="mt-1" [formGroup]="form">
+  <mat-form-field class="w-100-percent" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email">
+  </mat-form-field>
+  <mat-form-field class="w-100-percent" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+  <div>
+    <app-button
+      fullwidth="true"
+      raised="true"
+      [loading]="loading"
+      (onClick)="submitHandler()"
+      color="primary"
+    >Login</app-button>
+    <div class="d-block pt-1 text-center">Not a Member yet?</div>
+    <app-button class="d-block mt-1" fullwidth="true" routerLink="/auth/register">Register</app-button>
+  </div>
+</form>
+
