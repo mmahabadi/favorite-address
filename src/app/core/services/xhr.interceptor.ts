@@ -28,6 +28,7 @@ export class XhrInterceptor implements HttpInterceptor{
       catchError(
         (error: any, caught: Observable<HttpEvent<any>>) => {
           if (error.status === 401) {
+            this.authService.logout();
             this.router.navigate(['/auth/login']);
           } else {
             const message = error.error ? error.error : 'Error occured.';
