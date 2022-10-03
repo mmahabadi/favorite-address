@@ -1,18 +1,18 @@
-import {PublicAddressService} from "./public-address.service";
+import {AddressService} from "./address.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {fakeAsync, TestBed, tick} from "@angular/core/testing";
 import {Address} from "../models/address";
 import {of} from "rxjs";
 
-describe('Public Address Service', () => {
-  let service: PublicAddressService;
+describe('Address Service', () => {
+  let service: AddressService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [MatSnackBarModule, HttpClientModule]
     });
-    service = TestBed.inject(PublicAddressService);
+    service = TestBed.inject(AddressService);
   });
 
   it('should create', () => {

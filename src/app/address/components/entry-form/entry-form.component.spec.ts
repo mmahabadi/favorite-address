@@ -3,7 +3,7 @@ import {EntryFormComponent} from './entry-form.component';
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {SharedModule} from "../../../shared/shared.module";
 import {MatInputModule} from "@angular/material/input";
-import {PublicAddressService} from "../../services/public-address.service";
+import {AddressService} from "../../services/address.service";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterTestingModule} from "@angular/router/testing";
 
@@ -44,7 +44,7 @@ describe('EntryFormComponent', () => {
 
   it('should load data when the data is provided', () => {
     TestBed.overrideProvider(MAT_DIALOG_DATA, {useValue: {id: 1}});
-    const service = TestBed.inject(PublicAddressService);
+    const service = TestBed.inject(AddressService);
     fixture = TestBed.createComponent(EntryFormComponent);
     component = fixture.componentInstance;
     const spy = jest.spyOn(service, 'get');

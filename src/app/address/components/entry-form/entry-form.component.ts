@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Address} from '../../models/address';
-import {PublicAddressService} from "../../services/public-address.service";
+import {AddressService} from "../../services/address.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
@@ -26,7 +26,7 @@ export class EntryFormComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EntryFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {id: number},
-    private service: PublicAddressService,
+    private service: AddressService,
     private snackBar: MatSnackBar
   ) {}
 

@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AddressDetailsComponent} from './address-details.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {SharedModule} from "../../../shared/shared.module";
-import {PublicAddressService} from "../../services/public-address.service";
+import {AddressService} from "../../services/address.service";
 import {Address} from "../../models/address";
 import {of} from "rxjs";
 import {RouterTestingModule} from "@angular/router/testing";
@@ -11,7 +11,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 describe('AddressDetailsComponent', () => {
   let component: AddressDetailsComponent;
   let fixture: ComponentFixture<AddressDetailsComponent>;
-  let service: PublicAddressService;
+  let service: AddressService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -22,7 +22,7 @@ describe('AddressDetailsComponent', () => {
 
     fixture = TestBed.createComponent(AddressDetailsComponent);
     component = fixture.componentInstance;
-    service = TestBed.inject(PublicAddressService);
+    service = TestBed.inject(AddressService);
     fixture.detectChanges();
   });
 

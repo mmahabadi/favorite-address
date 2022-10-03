@@ -1,9 +1,11 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
-import {PublicAddressesComponent} from "./components/public-addresses/public-addresses.component";
+import {AddressesComponent} from "./components/addresses/addresses.component";
+import {AuthGuard} from "../core/services/auth.guard";
 
 export const routes: Routes = [
-  {path: '', component: PublicAddressesComponent}
+  {path: '', component: AddressesComponent},
+  {path: 'favorites', component: AddressesComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

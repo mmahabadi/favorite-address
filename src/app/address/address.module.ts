@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {AddressRoutingModule} from "./address-routing.module";
-import { PublicAddressesComponent } from './components/public-addresses/public-addresses.component';
+import { AddressesComponent } from './components/addresses/addresses.component';
 import {SharedModule} from "../shared/shared.module";
 import { AddressDetailsComponent } from './components/address-details/address-details.component';
 import { AddressListComponent } from './components/address-list/address-list.component';
@@ -14,7 +14,7 @@ import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
-    PublicAddressesComponent,
+    AddressesComponent,
     AddressDetailsComponent,
     AddressListComponent,
     EntryFormComponent,

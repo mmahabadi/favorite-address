@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Address} from "../../models/address";
 import {Subject, takeUntil} from "rxjs";
-import {PublicAddressService} from "../../services/public-address.service";
+import {AddressService} from "../../services/address.service";
 import {EntryFormComponent} from "../entry-form/entry-form.component";
 import {MatDialog} from "@angular/material/dialog";
 import {DeleteAddressDialogComponent} from "../delete-dialog/delete-address-dialog.component";
@@ -25,7 +25,7 @@ export class AddressDetailsComponent implements OnInit, OnDestroy {
   loading: boolean = false;
 
   constructor(
-    private service: PublicAddressService,
+    private service: AddressService,
     private dialog: MatDialog
   ) {}
 

@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Component, AfterViewInit, Input, OnChanges, SimpleChanges, OnDestroy} from '@angular/core';
 import * as L from 'leaflet';
 
 /**
@@ -25,14 +25,19 @@ Marker.prototype.options.icon = iconDefault;
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements AfterViewInit, OnChanges {
+export class MapComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() lat: number | undefined;
   @Input() long: number | undefined;
   private map: any;
   private marker: unknown;
+  // used dynamic map id to resolve the issue of map container is already initialized.
+  mapId: string = 'map';
 
   private initMap(): void {
-    this.map = L.map('map', {
+    if (!!this.map)
+      return;
+
+    this.map = L.map(this.mapId, {
       center: [ 39.8282, -98.5795 ],
       zoom: 13
     });
@@ -46,17 +51,26 @@ export class MapComponent implements AfterViewInit, OnChanges {
     tiles.addTo(this.map);
   }
 
-  constructor() { }
+  constructor() {
+    this.mapId += Math.random();
+  }
 
   ngAfterViewInit(): void {
     this.initMap();
+    this.setNewMarker(this.lat || 0, this.long || 0);
+  }
+
+  ngOnDestroy() {
+    this.map.off();
+    this.map.remove();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['lat']?.currentValue || changes['long']?.currentValue){
       const lat = changes['lat']?.currentValue || this.lat;
       const long = changes['long']?.currentValue || this.long;
-      this.setNewMarker(lat, long);
+
+      !!this.map && this.setNewMarker(lat, long);
     }
   }
 
