@@ -4,9 +4,12 @@
   [loading]="loading"
   class="d-flex w-100-percent"
 >
-  <app-map [lat]="item?.latitude" [long]="item?.longitude"></app-map>
-  <div class="d-flex" ngClass="actions-container">
-    <app-button (onClick)="editHandler()">EDIT</app-button>
-    <app-button (onClick)="deleteHandler()" color="accent">DELETE</app-button>
+  <div *ngIf="!item">There is no information.</div>
+  <div *ngIf="item">
+    <app-map [lat]="item?.latitude" [long]="item?.longitude"></app-map>
+    <div class="d-flex" ngClass="actions-container">
+      <app-button (onClick)="editHandler()">EDIT</app-button>
+      <app-button (onClick)="deleteHandler()" color="accent">DELETE</app-button>
+    </div>
   </div>
 </app-panel>

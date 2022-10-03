@@ -1,6 +1,6 @@
 <app-panel
   class="d-flex w-100-percent"
-  [title]="'Public Addresses'"
+  [title]="service.isFavorite ? 'Favorite Addresses' : 'Public Addresses'"
   subTitle="Addresses"
   [loading]="!!(service.loading$ | async)"
 >

@@ -1,6 +1,6 @@
 import {Component, Inject} from "@angular/core";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {PublicAddressService} from "../../services/public-address.service";
+import {AddressService} from "../../services/address.service";
 
 @Component({
   selector: 'app-delete-dialog',
@@ -17,7 +17,7 @@ export class DeleteAddressDialogComponent {
   loading: boolean = false;
 
   constructor(
-    private service: PublicAddressService,
+    private service: AddressService,
     private dialogRef: MatDialogRef<DeleteAddressDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private data: {id: number},
   ) {}
